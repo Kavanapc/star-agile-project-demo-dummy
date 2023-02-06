@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    tools{
+        maven 'MAVEN_HOME'
+    }
+    stages{
+        stage('checkout the project from github'){
+            
+    
+        steps{
+            git'https://github.com/Kavanapc/star-agile-project-demo-dummy.git'
+            
+        }
+        }
+        stage('checkout the project from maven'){
+        steps{
+            sh'mvn clean package'
+        }
+        }  
+    }
+    
+}
